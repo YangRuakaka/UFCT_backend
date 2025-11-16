@@ -1,4 +1,5 @@
 """数据模块"""
-from .data_fetcher import HFDatasetFetcher, BigQueryFetcher
+from .openalex_fetcher import OpenAlexFetcher, DataCache, get_fetcher
 
-__all__ = ["HFDatasetFetcher", "BigQueryFetcher"]
+# 导出类和单例获取函数
+__all__ = ["OpenAlexFetcher", "DataCache", "get_fetcher"]

@@ -14,8 +14,10 @@ class Config:
     JSON_SORT_KEYS = False
     JSONIFY_PRETTYPRINT_REGULAR = True
     
-    # Hugging Face 数据集配置
-    HF_DATASET_LOCAL_DIR = os.getenv("HF_DATASET_LOCAL_DIR", "./data/sciscinet-v2")
+    # OpenAlex API 配置
+    OPENALEX_EMAIL = os.getenv("OPENALEX_EMAIL", "yangyyk@tongji.edu.cn")  # 推荐配置邮箱加入 polite pool
+    OPENALEX_BASE_URL = "https://api.openalex.org"
+    OPENALEX_REQUEST_DELAY = 0.1  # 请求延迟（秒）
     
     # 数据处理配置
     DEFAULT_YEAR_MIN = 2020
@@ -30,19 +32,9 @@ class Config:
     REDIS_DB = int(os.getenv("REDIS_DB", 0))
     CACHE_TIMEOUT = 86400  # 24小时缓存
     
-    # 网络分析配置
-    FORCE_DIRECTED_ITERATIONS = 50  # 力引导布局迭代次数
-    FORCE_DIRECTED_K = 0.5           # 弹簧常数
-    MIN_EDGE_WEIGHT = 0.1            # 最小边权重阈值
-    
     # API配置
     MAX_REQUEST_TIMEOUT = 30
     BATCH_SIZE = 1000  # 批查询大小
-    
-    # 向后兼容（废弃的 BigQuery 配置）
-    BIGQUERY_PROJECT = os.getenv("BIGQUERY_PROJECT", "")
-    BIGQUERY_DATASET_V2 = ""
-    GOOGLE_APPLICATION_CREDENTIALS = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "")
 
 
 class DevelopmentConfig(Config):
